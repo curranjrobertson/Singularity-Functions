@@ -1,200 +1,26 @@
-# Created by Octave 8.2.0, Fri Aug 04 16:49:00 2023 MDT <curranrobertson@Currans-MacBook-Pro.local>
-# name: a
-# type: matrix
-# rows: 1
-# columns: 3
- 1 2 3
-
-
-# name: ans
-# type: class
-# classname: sym
-# length: 6
-# name: ascii
-# type: cell
-# rows: 1
-# columns: 1
-# name: <cell-element>
-# type: sq_string
-# elements: 1
-# length: 1
-x
-
-
-
-
-
-# name: extra
-# type: cell
-# rows: 1
-# columns: 1
-# name: <cell-element>
-# type: matrix
-# rows: 0
-# columns: 0
-
-
-
-
-
-# name: flat
-# type: cell
-# rows: 1
-# columns: 1
-# name: <cell-element>
-# type: sq_string
-# elements: 1
-# length: 1
-x
-
-
-
-
-
-# name: pickle
-# type: cell
-# rows: 1
-# columns: 1
-# name: <cell-element>
-# type: sq_string
-# elements: 1
-# length: 11
-Symbol('x')
-
-
-
-
-
-# name: size
-# type: cell
-# rows: 1
-# columns: 1
-# name: <cell-element>
-# type: matrix
-# rows: 1
-# columns: 2
- 1 1
-
-
-
-
-
-# name: unicode
-# type: cell
-# rows: 1
-# columns: 1
-# name: <cell-element>
-# type: sq_string
-# elements: 1
-# length: 1
-x
-
-
-
-
-
-
-
-# name: c
-# type: matrix
-# rows: 1
-# columns: 3
- 1 2 3
-
-
-# name: n
-# type: matrix
-# rows: 1
-# columns: 3
- 1 2 3
-
-
-# name: x
-# type: class
-# classname: sym
-# length: 6
-# name: ascii
-# type: cell
-# rows: 1
-# columns: 1
-# name: <cell-element>
-# type: sq_string
-# elements: 1
-# length: 1
-x
-
-
-
-
-
-# name: extra
-# type: cell
-# rows: 1
-# columns: 1
-# name: <cell-element>
-# type: matrix
-# rows: 0
-# columns: 0
-
-
-
-
-
-# name: flat
-# type: cell
-# rows: 1
-# columns: 1
-# name: <cell-element>
-# type: sq_string
-# elements: 1
-# length: 1
-x
-
-
-
-
-
-# name: pickle
-# type: cell
-# rows: 1
-# columns: 1
-# name: <cell-element>
-# type: sq_string
-# elements: 1
-# length: 11
-Symbol('x')
-
-
-
-
-
-# name: size
-# type: cell
-# rows: 1
-# columns: 1
-# name: <cell-element>
-# type: matrix
-# rows: 1
-# columns: 2
- 1 1
-
-
-
-
-
-# name: unicode
-# type: cell
-# rows: 1
-# columns: 1
-# name: <cell-element>
-# type: sq_string
-# elements: 1
-# length: 1
-x
-
-
-
-
-
-
-
+function f1 = singularity(c, a, n)
+  % This function takes vector inputs for the coefficients (c), x-values (a), and the exponent (n)
+  % of a singularity function, produces the singularity function, and plots the result.
+
+  pkg load symbolic
+syms x;
+  func = 0;
+  for i = 1:length(c)
+    func = c(i)*(x-a(i))^n(i) + func;
+  end
+
+disp(func) % Replace Parentheses with angle brackets
+
+x = 0:0.1:max(a)
+for j  = 1:length(c)
+    func = c(j).*(x-a(j)).^n(j) + func;
+    if (j - 1) <= 0
+      x = 0:0.1:a(j)
+      plot(x, func)
+    else
+      x = a(j-1):0.1:a(j)
+      fplot(x , func)
+    end
+end
+
+end
