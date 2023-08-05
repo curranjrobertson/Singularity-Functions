@@ -7,20 +7,13 @@ syms x;
   func = 0;
   for i = 1:length(c)
     func = c(i)*(x-a(i))^n(i) + func;
-  end
+    if (i - 1) <= 0
+      ezplot(func, [0 a(i)])
+    else
+      ezplot(func, [a(i-1) a(i)])
+    end
 
 disp(func) % Replace Parentheses with angle brackets
 
-x = 0:0.1:max(a)
-for j  = 1:length(c)
-    func = c(j).*(x-a(j)).^n(j) + func;
-    if (j - 1) <= 0
-      x = 0:0.1:a(j)
-      plot(x, func)
-    else
-      x = a(j-1):0.1:a(j)
-      fplot(x , func)
-    end
-end
 
 end
