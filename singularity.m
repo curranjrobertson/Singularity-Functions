@@ -8,12 +8,14 @@ syms x;
   for i = 1:length(c)
     func = c(i)*(x-a(i))^n(i) + func;
     if (i - 1) <= 0
+      figure
       ezplot(func, [0 a(i)])
     else
+      figure
       ezplot(func, [a(i-1) a(i)])
     end
   end
-
+hold off
 
 disp(func) % Replace Parentheses with angle brackets
 
