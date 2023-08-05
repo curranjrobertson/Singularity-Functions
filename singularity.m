@@ -6,7 +6,7 @@ function f1 = singularity(c, a, n)
 syms x;
   func = 0;
   for i = 1:length(c)
-    func = c(i)*(x-a(i))^n(i) + func;
+    func = c(i)*(x-a(i))^n(i).*(heaviside(x-a(i))) + func
     if (i - 1) <= 0
       figure
       ezplot(func, [0 a(i)])
@@ -18,6 +18,4 @@ syms x;
 hold off
 
 disp(func) % Replace Parentheses with angle brackets
-
-
 end
