@@ -12,6 +12,8 @@ syms x;
     else
       ezplot(func, [a(i-1) a(i)])
     end
+  end
+
 
 disp(func) % Replace Parentheses with angle brackets
 
