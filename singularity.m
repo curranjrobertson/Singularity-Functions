@@ -19,7 +19,7 @@ function f1 = singularity(c, a, n)
 
   y = 0;
   for i = 1:length(c)
-    y = piecewise(cond(i), val(i)) + y
+    y = piecewise(cond(i), val(i), y)
   end
 
   ezplot(y)
