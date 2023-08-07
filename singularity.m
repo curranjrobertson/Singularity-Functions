@@ -8,6 +8,11 @@ function f1 = singularity(c, a, n)
   n = [1 2 3]
   pkg load symbolic
   syms x
+  condBound = x <= 0
+  funcBound = 0
+  af = a(length(a))
+  condBound2 = x >= af
+  funcBound2 = 0
   L = length(c)
  % Error caused by not containing all x-values
   for i = 1:L
@@ -19,9 +24,7 @@ function f1 = singularity(c, a, n)
       val(i) = func
       cond(i) = ( 0 < x)
     end
-    cond2 = x <= 0
-    func2 = 0
-    y = piecewise(cond(i), val(i), cond2, func2)
+    y = piecewise(cond(i), val(i), condBound, funcBound, condBound2, funcBound2)
     ezplot(y)
   end
   %disp(func) % Replace Parentheses with angle brackets
