@@ -11,17 +11,17 @@ function f1 = singularity(c, a, n)
   L = length(c)
  % Error caused by not containing all x-values
   for i = 1:L
-    func = c(i)*(x-a(i))^n(i)%*(heaviside(x-a(i)))
+    func1 = c(i)*(x-a(i))^n(i)%*(heaviside(x-a(i)))
     if (i - 1) <= 0
-      y = func
-      cond = ( abs(x) < 1 & abs(x) > 1)
+      y = func1
+      cond1 = ( x > 1)
     else
-      y = func
-      cond = ( abs(x) > 1 & abs(x) > 1)
+      y = func1
+      cond1 = ( x > 1)
     end
-    cond
-    func
-    y = piecewise(cond, func)
+    cond2 = x <= 1
+    func2 = 0
+    y = piecewise(cond1, func1, cond2, func2)
     ezplot(y)
   end
   disp(func) % Replace Parentheses with angle brackets
