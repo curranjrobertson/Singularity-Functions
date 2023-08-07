@@ -19,9 +19,11 @@ function f1 = singularity(c, a, n)
       y = func1
       cond1 = ( x > 1)
     end
-    cond2 = x <= 1
+    cond2 = x <= 0
     func2 = 0
-    y = piecewise(cond1, func1, cond2, func2)
+    cond3 = x >= a(length(a))
+    func3 = 0
+    y = piecewise(cond1, func1, cond2, func2, cond3, func3)
     ezplot(y)
   end
   disp(func) % Replace Parentheses with angle brackets
