@@ -6,11 +6,7 @@ function plot_singularity_functions(c, a, n)
     y = zeros(size(x));
 
     for i = 1:length(c)
-      if n(i) >= 0
         y = y + c(i).*(x-a(i)).^(n(i)).*heaviside(x-a(i));
-      else
-        y = y + c(i).*(x - a(i)).^n(i);
-      end
     end
 
     plot(x, y);
