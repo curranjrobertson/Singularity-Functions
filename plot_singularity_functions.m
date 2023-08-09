@@ -12,6 +12,6 @@ function plot_singularity_functions(c, a, n)
     plot(x, y);
     xlabel('x');
     ylabel('Singularity Function');
-    title('Plot of Singularity Functions');
+    title('Plot of Singularity Function');
 
 end
