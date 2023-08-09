@@ -8,7 +8,7 @@ function plot_singularity_functions(c, a, n)
     for i = 1:length(c)
         y = y + c(i).*(x-a(i)).^(n(i)).*heaviside(x-a(i));
     end
-
+    disp(y)
     plot(x, y);
     xlabel('x');
     ylabel('Singularity Function');
