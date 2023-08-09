@@ -1,6 +1,4 @@
 function plot_singularity_functions(c, a, n)
-  % Author: Curran Robertson
-  % Date: August 5, 2023 (W.I.P)
   % This function takes vector inputs for the coefficients (c), x-values (a), and the exponent (n)
   % of a singularity function, produces the singularity function, and plots the result.
 
