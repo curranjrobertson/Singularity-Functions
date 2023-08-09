@@ -1,7 +1,7 @@
 function singularity_integral(c, a, n, t)
   % Curran Robertson
   % This function takes vector inputs for the coefficients (c), x-values (a), the exponent (n), and the number of integrations
-  % of a singularity function and produces the singularity function.
+  % of a singularity function (t) and produces the singularity function.
   % Note: This integration function was meant for beam theory applications and
   % works for up to 4 integrations. The constants of integration are d and e.
   pkg load symbolic
